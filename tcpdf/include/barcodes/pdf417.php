@@ -751,7 +751,7 @@ class PDF417 {
 			} elseif ($numcw < 864) {
 				$ecl = 5;
 			} else {
-				$ecl = $maxecl;
+				$ecl = self::$maxecl;
 			}
 		}
 		// get maximum correction level

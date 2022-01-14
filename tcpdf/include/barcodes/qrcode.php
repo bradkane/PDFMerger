@@ -1386,7 +1386,7 @@ class QRcode {
 			$p += 2;
 		}
 		$this->items = $this->appendNewInputItem($this->items, QR_MODE_KJ, $p, str_split($this->dataStr));
-		return $run;
+		return self::$run;
 	}
 
 	/**
@@ -1455,7 +1455,7 @@ class QRcode {
 					break;
 				}
 				case QR_MODE_KJ: {
-					if ($hint == QR_MODE_KJ) {
+					if (self::$hint == QR_MODE_KJ) {
 						$length = $this->eatKanji();
 					} else {
 						$length = $this->eat8();
@@ -1717,7 +1717,7 @@ class QRcode {
 			return -1;
 		}
 		$buf = array($size, $index, $parity);
-		$entry = $this->newInputItem(QR_MODE_ST, 3, buf);
+		$entry = $this->newInputItem(QR_MODE_ST, 3, $buf);
 		array_unshift($items, $entry);
 		return $items;
 	}
